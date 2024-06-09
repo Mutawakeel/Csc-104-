@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop.co - Casual</title>
+    <link rel="stylesheet" href="Emmanu.css">
+</head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        color: #333;
+    }
+    
+    header {
+        background-color: #fff;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    
+    .top-bar {
+        background-color: #000;
+        color: #fff;
+        text-align: center;
+        padding: 10px;
+    }
+    
+    .top-bar a {
+        color: #f00;
+        text-decoration: none;
+    }
+    
+    nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px;
+    }
+    
+    .logo {
+        font-size: 24px;
+        font-weight: bold;
+    }
+    
+    .menu {
+        list-style: none;
+        display: flex;
+        gap: 20px;
+    }
+    
+    .menu li {
+        display: inline;
+    }
+    
+    .menu a {
+        text-decoration: none;
+        color: #333;
+    }
+    
+    .search-bar {
+        display: flex;
+        gap: 10px;
+    }
+    
+    .search-bar input {
+        padding: 10px;
+        border: 1px solid #ccc;
+    }
+    
+    .search-bar button {
+        padding: 10px;
+        background-color: #333;
+        color: #fff;
+        border: none;
+    }
+    
+    .cart img {
+        width: 24px;
+        height: 24px;
+    }
+    
+    main {
+        display: flex;
+        padding: 20px;
+    }
+    
+    .filters {
+        width: 20%;
+        padding: 20px;
+        border-right: 1px solid #eee;
+    }
+    
+    .filters h2, .filters h3 {
+        margin: 0 0 10px 0;
+    }
+    
+    .filters ul {
+        list-style: none;
+        padding: 0;
+        margin: 0 0 20px 0;
+    }
+    
+    .filters li {
+        margin-bottom: 10px;
+    }
+    
+    .filters .color-options {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 20px;
+        flex-direction: column;
+    }
+    
+    .filters .color {
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        display: inline-block;
+    }
+    
+    .color.red { background-color: red; }
+    .color.blue { background-color: blue; }
+    .color.green { background-color: green; }
+    .color.black { background-color: black; }
+    .color.white { background-color: white; border-color: black; }
+    .color.pink { background-color: pink; }
+    .color.lightblue { background-color: rgb(0, 183, 255);}
+    .color.orange{background-color: orange;}
+    .color.purple{background-color: purple;}
+    .color.yellow{background-color: yellow;}
+    
+    .apply-filters {
+        width: 100%;
+        background-color: #020202c2;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        height: 40px;
+    }
+    
+    .product-listing {
+        width: 80%;
+        padding: 20px;
+    }
+    
+    .product-listing h2 {
+        margin: 0 0 20px 0;
+    }
+    
+    .products {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+    
+    .product {
+        text-align: center;
+    }
+    
+    .product img {
+        width: 100%;
+        height: 200px;
+        margin-bottom: 10px;
+    }
+    
+    .product h3 {
+        margin: 0 0 10px 0;
+    }
+    
+    .product p {
+        margin: 0;
+    }
+    
+    .old-price {
+        text-decoration: line-through;
+        color: #888;
+    }
+    
+    .pagination {
+        display: flex;
+        flex-direction: row;
+        margin-top: 20px;
+    }
+    
+    
+    footer {
+        background-color: #000;
+        color: #fff;
+        padding: 20px;
+    }
+    
+    .newsletter {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    
+    .newsletter input {
+        padding: 10px;
+        border: none;
+        width: 300px;
+        margin-right: 10px;
+    }
+    
+    .newsletter button {
+        padding: 10px;
+        background-color: #f00;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+    }
+    
+    .footer-info {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+    }
+    
+    .footer-info div {
+        width: 30%;
+    }
+    
+    .footer-info h3 {
+        margin: 0 0 10px 0;
+    }
+    
+    .footer-info ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    
+    .footer-info li {
+        margin-bottom: 10px;
+    }
+    
+    .footer-info a {
+        color: #fff;
+        text-decoration: none;
+    }
+    
+    .social-media {
+        text-align: center;
+    }
+    
+    .social-media a {
+        margin: 0 10px;
+        display: inline-block;
+    }
+    
+    .social-media img {
+        width: 24px;
+        height: 24px;
+    }
+    .b1{
+        margin-left: 25%;
+        width: 40px;
+        height: 30%;
+        background-color: grey;
+    }.b2{
+        width: 40px;
+        height: 30%;
+    }.next{
+        margin-left: 40%;
+    }.v1{
+        background-color: rgba(128, 128, 128, 0.5);
+        width: 100px;
+        height: 50px;
+        border-color: #33333300;
+        border-radius: 50%;
+    }.c1{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+    }.g2{
+        background-color: black;
+        color: white;
+        width: 80%;
+        margin-left: 10%;
+        margin-top: 2%;
+        display: flex;
+        flex-direction: row;
+        border-radius: 14px;
+    }.g1{
+        display: flex;
+        flex-direction: column;
+        width: 70%;
+    }.s3{
+        margin-left: 2%;
+    }.text{
+        margin-top: 5%;
+        width: 30%;
+        margin-left: 30%;
+        height: 30%;
+        width: 38%;
+        border-radius: 14px;
+        border: none;
+        box-shadow: 0px 0px 10px 10px rgba(0, 0, 0, 0.254);
+        padding-left:10px;
+        transition: 0.5s;
+    }.news{
+        margin-top: 1%;
+        width: 30%;
+        margin-left: 30%;
+        height: 30%;
+        width: 40%;
+        border-radius: 14px;
+        border: none;
+        box-shadow: 0px 0px 10px 10px rgba(0, 0, 0, 0.254);
+        padding-left:10px;
+        transition: 0.5s;
+    }.p1{
+        display: flex;
+        flex-direction: row;
+    }.r1{
+        display: flex;
+        flex-direction: row;
+    }.i1{
+        display: flex;
+        flex-direction: column;
+        width: 30%;
+        margin-left: 7%;
+        height: 70px;
+    }.q1{
+        width: 30px;
+        height: 30px;
+        margin-left: 10%;
+    }.q2{
+        height: 30px;
+        height: 30px;
+        margin-left: 2%;
+    }.header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }.ul{
+        display: flex;
+        flex-direction: row;
+    }.on{
+        margin-left: 2%;
+        font-size: 15px;
+    }.new{
+        margin-left: 2%;
+        font-size: 15px;
+    }.arr{
+        margin-left: 2%;
+        font-size: 15px;
+    }.select{
+        height: 20px;
+        margin-top: 5%;
+        margin-right: 1%;
+        margin-left: -80%;
+        border-color: white;
+    }.logo{
+        font-size: 24px;
+        font-weight: bold;
+        margin-left: 5%;
+    }.search{
+        margin-left: -250%;
+    }.cart-icon{
+        margin-left: 200%;}
+    .
+        l1{
+            margin-top: -10%;
+        }
+</style>
+<body>
+    <header class="header">
+        <div class="logo">SHOP.CO</div>
+        <div class="ul">
+            <select name="" id="" class="select">
+                <option value="">Shop</option>
+            </select>
+            <p class="on">On Sale</p>
+            <p class="new">New Arrivals</p>
+            <p class="arr">Arrivals</p>
+        </div>
+        <div class="search-cart">
+            <input type="text" placeholder="Search" class="search">
+            <a href="#" class="cart-icon">🛒</a>
+        </div>
+    </header>
+    <main>
+        <aside class="filters">
+            <h2>Filters</h2>
+            <div class="filter-category">
+                <h3>Category</h3>
+                <ul>
+                    <li><input type="checkbox"> T-shirts</li>
+                    <li><input type="checkbox"> Jeans</li>
+                    <li><input type="checkbox"> Shorts</li>
+                    <li><input type="checkbox"> Shirts</li>
+                </ul>
+            </div>
+            <div class="filter-price">
+                <h3>Price</h3>
+                <input type="range" min="0" max="300" value="150">
+            </div>
+            <div class="filter-colors">
+                <h3>Colors</h3>
+                <div class="color-options">
+                    <div class="c1"><span class="color red"></span>
+                    <span class="color blue"></span>
+                    <span class="color green"></span>
+                    <span class="color black"></span>
+                    <span class="color white"></span></div>
+                    <div class="c1"><span class="color pink"></span>
+                    <span class="color purple"></span>
+                    <span class="color lightblue"></span>
+                    <span class="color yellow"></span>
+                    <span class="color orange"></span></div>
+                </div>
+            </div>
+            <div class="filter-size">
+                <h3>Size</h3>
+                <ul>
+                    <button class="v1">xxsmall</button>
+                    <button class="v1">xsmall</button>
+                    <button class="v1">small</button>
+                    <button class="v1">medium</button>
+                    <button class="v1">large</button>
+                    <button class="v1">xlarge</button>
+                    <button class="v1">xxlarge</button>
+                </ul>
+            </div>
+            <div class="filter-style">
+                <h3>Dress Style</h3>
+                <ul>
+                    <li><input type="checkbox"> Casual</li>
+                    <li><input type="checkbox"> Formal</li>
+                    <li><input type="checkbox"> Sport</li>
+                    <li><input type="checkbox"> Home</li>
+                    <li><input type="checkbox"> Gym</li>
+                </ul>
+            </div>
+            <button class="apply-filters">Apply Filter</button>
+        </aside>
+        <section class="product-listing">
+            <h2>Casual</h2>
+            <div class="products">
+                <div class="product">
+                    <img src="C:\Users\user\Pictures\IMG-20240521-WA0152.jpg" alt="Gradient Graphic T-shirt">
+                    <h3>Gradient Graphic T-shirt</h3>
+                    <p>$145</p>
+                </div>
+                <div class="product">
+                    <img src="C:\Users\user\Pictures\IMG-20240521-WA0154.jpg" alt="Polo with Tipping Details">
+                    <h3>Polo with Tipping Details</h3>
+                    <p>$180</p>
+                </div>
+                <div class="product">
+                    <img src="C:\Users\user\Pictures\IMG-20240521-WA0153.jpg" alt="Black Striped T-shirt">
+                    <h3>Black Striped T-shirt</h3>
+                    <p>$120 <span class="old-price">$150</span></p>
+                </div>
+                <div class="product">
+                    <img src="C:\Users\user\Pictures\IMG-20240521-WA0148.jpg" alt="Skinny Fit Jeans">
+                    <h3>Skinny Fit Jeans</h3>
+                    <p>$240 <span class="old-price">$260</span></p>
+                </div>
+                <div class="product">
+                    <img src="C:\Users\user\Pictures\IMG-20240521-WA0155.jpg" alt="Checkered Shirt">
+                    <h3>Checkered Shirt</h3>
+                    <p>$180</p>
+                </div>
+                <div class="product">
+                    <img src="C:\Users\user\Pictures\IMG-20240521-WA0149.jpg" alt="Sleeve Striped T-shirt">
+                    <h3>Sleeve Striped T-shirt</h3>
+                    <p>$130 <span class="old-price">$160</span></p>
+                </div>
+                <div class="product">
+                    <img src="C:\Users\user\Pictures\IMG-20240521-WA0150.jpg" alt="Vertical Striped Shirt">
+                    <h3>Vertical Striped Shirt</h3>
+                    <p>$212 <span class="old-price">$230</span></p>
+                </div>
+                <div class="product">
+                    <img src="C:\Users\user\Pictures\IMG-20240521-WA0154.jpg" alt="Courage Graphic T-shirt">
+                    <h3>Courage Graphic T-shirt</h3>
+                    <p>$145</p>
+                </div>
+                <div class="product">
+                    <img src="C:\Users\user\Pictures\IMG-20240521-WA0148.jpg" alt="Loose Fit Bermuda Shorts">
+                    <h3>Loose Fit Bermuda Shorts</h3>
+                    <p>$80 <span class="old-price">$100</span></p>
+                </div>
+            </div>
+            <div class="pagination">
+                <button class="prev">Previous</button>
+                <button class="b1">1</button>
+                <button class="b2">2</button>
+                <button class="b2">3</button>
+                -
+                <button class="b2">8</button>
+                <button class="b2">9</button>
+                <button class="b2">10</button>
+                <button class="next">Next</button>
+            </div>
+        </section>
+    </main>
+    
+
+    <div>
+        <div class="g2">
+            <h1 class="s3">STAY UPTO DATE ABOUT OUR LATEST OFFERS</h1>
+            <div class="g1">
+                <input type="text" placeholder="Enter your your email address" class="text">
+                <button class="news">Suscribe to Newsletter</button>
+            </div>
+        </div>
+        <div class="p1">
+            <div class="i1">
+                <h1 class="shop">SHOP.CO</h1>
+                <p>We humbly appreciate your patronage on our platforms</p>
+                <div class="r1">
+                    <img src="C:\Users\user\Downloads\pngegg (3).png" alt="" class="q1">
+                    <img src="C:\Users\user\Downloads\pngegg (4).png" alt="" class="q2">
+                    <img src="C:\Users\user\Downloads\pngegg (5).png" alt="" class="q2">
+                </div>
+            </div>
+            <div class="i1">
+                <h3>COMPANY</h3>
+                <p class="l2">About</p>
+                <p class="l1">Works</p>
+                <p class="l1">Contact</p>
+            </div>
+            <div class="i1">
+                <h3>HELP</h3>
+                <p class="l2">Customer Support</p>
+                <p class="l1">Delivery Support</p>
+                <p class="l1">Privacy Policy</p>
+                <p class="l1">Terms & Conditions</p>
+            </div>
+            <div class="i1">
+                <h3>FAQ</h3>
+                <p class="l2">Account</p>
+                <p class="l1">Payments</p>
+                <p class="l1">Credits</p>
+            </div>
+            <div class="i1">
+                <h3>RESOURCES</h3>
+                <P class="l2">Prep Stocks</P>
+                <p class="l1">Blog</p>
+                <p class="l1">Development Tutorial</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
